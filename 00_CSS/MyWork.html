@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="JaeHyeok Kim">
+    <meta name="description" content="My Test Web Page">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .display-none{ display: none }
+        .invisible{ visibility: hidden }
+        .block1{ width: 300px; border: 3px solid rgb(95, 27, 27) }
+        .inline2{width: 200px; /* 이 값은 무시됩니다 */ border: 3px solid #999;}
+        .inline-block1{display: inline-block; background: #09c; height: 45px;}
+    </style>
+</head>
+<body>
+    <div class="display-none">1</div>
+    <div>2</div>
+    <div class="invisible">3</div>
+    <div>4</div>
+    <div class="block1">5</div>
+    <p>
+        Lorem ipsum dolor sit amet, <span>consectetur adipiscing elit</span>,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in <span class="inline2">reprehenderit</span>
+        in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident,
+        sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+    <p>
+        Lorem ipsum dolor sit amet, <span class="inline-block1">consectetur adipiscing elit</span>,
+        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Duis aute irure dolor in <span">reprehenderit</span>
+        in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        Excepteur sint occaecat cupidatat non proident,
+        sunt in culpa qui officia deserunt mollit anim id est laborum.
+    </p>
+</body>
+</html>

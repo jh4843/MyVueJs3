@@ -1,0 +1,37 @@
+<!--index.html-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <!--or <script src="vue.js"></script> vue.js를 같이 보낸다. -->
+</head>
+<body>
+    <div id="app">
+
+        <!-- Binding class --> 
+        
+        <div class="static"  v-bind:class="{ active: isActive, 'text-danger': hasError }">
+            <span>tt</span>
+        </div>
+
+        <div v-bind:class="[activeClass, errorClass]"></div>
+
+        <my-component class="baz boo"></my-component>
+
+        <!-- Style Inline --> 
+
+        <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">Test Style</div>
+
+        <div v-bind:style="styleObject">Test Style 2</div>
+
+        <div v-bind:style="[baseStyles, overridingStyles]">Test Style 3</div>
+    </div>
+
+      <script src="index.js"></script>
+</body>
+</html>
+

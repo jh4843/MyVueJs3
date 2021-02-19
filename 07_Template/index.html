@@ -1,0 +1,29 @@
+<!--index.html-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07_Template</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <!--or <script src="vue.js"></script> vue.js를 같이 보낸다. -->
+</head>
+<body>
+    <div id="app">
+        <p>
+            <input v-model="message_a"> <br>
+
+            <span v-once>Message: {{message_a}} </span> <br>
+            Update only one: {{message_a}} <br>
+            Using Mustaches: {{message_a}} <br>
+            Using v-html directive: <span v-html="message_a"></span>
+
+            <button v-bind:disabled="isButtonDisabled">Button</button>
+        </p>
+
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
+

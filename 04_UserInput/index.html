@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@next"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{message}}</p>
+        <button v-on:click="reverseMessage">Reverse Message</button>
+
+        <p>{{inputMessage}}</p>
+        <input v-model="inputMessage">
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

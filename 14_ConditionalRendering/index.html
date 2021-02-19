@@ -1,0 +1,50 @@
+<!--index.html-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <!--or <script src="vue.js"></script> vue.js를 같이 보낸다. -->
+</head>
+<body>
+    <div id="app">
+        <h1 v-if="awesome">Vue is awesome!</h1>
+        <h1 v-else>Oh no 😢</h1>
+
+        <template v-if="ok">
+            <h1>Title</h1>
+            <p>Paragraph 1</p>
+            <p>Paragraph 2</p>
+        </template>
+
+        <div v-if="isShow">
+            Now you see me
+        </div>
+        <div v-else-if="isHide">
+            Now you don't
+        </div>
+        <div v-else>
+            Now you don't anything
+        </div>
+          
+        <template v-if="loginType === 'username'">
+            <label>Username</label>
+            <input v-model="inputData" placeholder="Enter your username">
+        </template>
+        <template v-else>
+            <label>Email</label>
+            <input v-model="inputData" placeholder="Enter your email address">
+        </template>
+
+        <p>{{inputData}}</p>
+          
+
+    </div>
+
+      <script src="index.js"></script>
+</body>
+</html>
+

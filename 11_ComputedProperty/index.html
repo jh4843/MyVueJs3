@@ -1,0 +1,27 @@
+<!--index.html-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07_Template</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <!--or <script src="vue.js"></script> vue.js를 같이 보낸다. -->
+</head>
+<body>
+    <div id="example">
+        <p>Original message: "{{ message }}"</p>
+        <p>Computed reversed message: "{{ reversedMessage }}"</p>
+        <p>computed property: {{now}}</p>
+        <p>method: {{methodnow()}}</p>
+        <br><br><br>
+        <p>{{firstName}}</br>
+        <p>{{lastName}}</p>
+        <p>{{fullName}}</p>
+        <p><input v-model="fullName"></p>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
+

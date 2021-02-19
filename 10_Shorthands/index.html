@@ -1,0 +1,35 @@
+<!--index.html-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07_Template</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <!--or <script src="vue.js"></script> vue.js를 같이 보낸다. -->
+</head>
+<body>
+    <div id="app">
+        <!-- 전체 문법 -->
+        <a v-bind:href="url"> ... </a>
+
+        <!-- 약어 -->
+        <a :href="url"> ... </a>
+
+        <!-- shorthand with dynamic argument (2.6.0+) -->
+        <a :[key]="url"> ... </a>
+
+        <!-- 전체 문법 -->
+        <button v-on:click="doSomething">Greet</button>
+
+        <!-- 약어 -->
+        <button @click="doSomething">Nice</button>
+
+        <!-- shorthand with dynamic argument (2.6.0+) -->
+        <button @[event]="doSomething">Super</button>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
+

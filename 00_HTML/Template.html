@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="JaeHyeok Kim">
+    <meta name="description" content="My Test Web Page">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="showContent()">Show hidden content</button>
+
+    <template>
+      <h2>Flower</h2>
+      <img src="smiley.png" width="214" height="204">
+    </template>
+    
+    <script>
+        function showContent() {
+        var temp = document.getElementsByTagName("template")[0];
+        var clon = temp.content.cloneNode(true);
+        document.body.appendChild(clon);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!--index.html-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <!--or <script src="vue.js"></script> vue.js를 같이 보낸다. -->
+</head>
+<body>
+    <div id="example-1">
+        <button v-on:click="counter += 1">Add 1</button>
+        <p>The button above has been clicked {{ counter }} times.</p>
+        <button type ="submit" value="Submit">submit</button>
+        <button type ="reset" value="Reset">reset</button>
+        <button v-on:click="greet">Greet</button>
+        <button v-on:click="warn('Form cannot be submitted yet.', $event)">Submit</button>
+
+        <p>
+            <!-- the click event's propagation will be stopped -->
+            <a v-on:click.stop="doThis">click.stop</a>
+
+            <!-- the submit event will no longer reload the page -->
+            <form v-on:submit.prevent="onSubmit">submit.prevent</form>
+
+            <!-- modifiers can be chained -->
+            <a v-on:click.stop.prevent="doThat">click.stop.prevent</a>
+
+            <!-- just the modifier -->
+            <form v-on:submit.prevent>submit.prevent</form>
+
+            <!-- use capture mode when adding the event listener -->
+            <!-- i.e. an event targeting an inner element is handled here before being handled by that element -->
+            <div v-on:click.capture="doThis">click.capture</div>
+
+            <!-- only trigger handler if event.target is the element itself -->
+            <!-- i.e. not from a child element -->
+            <div v-on:click.self="doThat">click.self</div>
+
+            <!-- 2.1.4+ -->
+            <!-- the click event will be triggered at most once -->
+            <a v-on:click.once="doThis">click.once</a>
+
+            <div v-on:scroll.passive="onScroll">scroll.passive</div>
+        </p>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
+
