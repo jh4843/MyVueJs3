@@ -6,56 +6,56 @@ var model = {
 
 //Object.freeze(model)                  // Freeze reactivity system
 
-var vm = new Vue({
-    el: '#app',
-    data: model,
-
-    // Init events & lifecycle
+const VueApp = {
+    data() {
+        return model
+    },
 
     beforeUpdate: function() {
-        console.log("before Update")
+        alert("before Update")
     },
 
     // Init Injections
 
     created: function() {
-        console.log("created")
+        alert("created")
     },
 
     beforeMount: function() {
-        console.log("before Mount")
+        alert("before Mount")
     },
 
     mounted: function() {
-        console.log("mounted")
+        alert("mounted")
     },
 
     // Mounted & Data update
     beforeUpdate: function() {
-        console.log("before update")
+        alert("before update")
     },
 
     updated: function() {
-        console.log("updated")
+        alert("updated")
     },
 
     beforeDestroy: function() {
-        console.log("before destroy")
+        alert("before destroy")
     },
 
     destroyed: function() {
-        console.log("destroyed")
+        alert("destroyed")
     },
-    
-});
+}
+  
+const app = Vue.createApp(VueApp).mount('#life-cycle-app')
 
-vm.message_a = "Test 1"                 // Reactive
-vm.$data.message_b = "Test3"            // Reactive
+app.message_a = "Test 1"                 // Reactive
+app.$data.message_b = "Test3"            // Reactive
 
-vm.$watch('message_a', function (newValue, oldValue) {
+app.$watch('message_a', function (newValue, oldValue) {
     console.log("a is changed")
 });
 
-vm.b = "hi"                             // not reactive
+app.b = "hi"                             // not reactive
 
 
