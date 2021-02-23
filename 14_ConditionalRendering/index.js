@@ -1,6 +1,7 @@
-var vm = new Vue({
-    el: '#app',
-    data: {
+
+const VueApp = {
+    data() {
+      return {
         // with object
         awesome: false,
         ok: true,
@@ -12,5 +13,8 @@ var vm = new Vue({
 
         usernameinput: 1,
         emailinput: 2
-    }
-});
+      }
+    },
+}
+
+const app = Vue.createApp(VueApp).mount('#conditionRendering-example')

@@ -5,12 +5,15 @@ var model = {
     isButtonDisabled: false
 };
 
-//Object.freeze(model)                  // Freeze reactivity system
+const VueApp = {
+    data() {
+      return model
+    }
+}
 
-var vm = new Vue({
-    el: '#app',
-    data: model,
-});
+  
+const app = Vue.createApp(VueApp).mount('#templat-app')
 
-vm.message_a = "Test1"                 // Reactive
-vm.message_b = "Test3"            // Reactive
+app.message_a = "Test1"            // Reactive
+app.message_b = "Test3"            // Reactive
+ 

@@ -1,6 +1,7 @@
-var vm = new Vue({
-    el: '#app',
-    data: {
+// with component
+const VueApp = {
+    data() {
+      return {
         // with object
         isActive: false,
         hasError: false,
@@ -26,9 +27,13 @@ var vm = new Vue({
             color: 'yellow'
         }
       }
-});
-
-// with component
-vm.component('my-component', {
+    },
+}
+    
+const app = Vue.createApp(VueApp)
+app.component('my-component', {
     template: '<p class="foo bar">Hi</p>'
 })
+  
+app.mount('#class-example')
+  
