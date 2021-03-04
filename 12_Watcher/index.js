@@ -3,7 +3,24 @@ const VueApp = {
   data() {
     return {
       question: '',
-      answer: 'I cannot give you an answer until you ask a question!'
+      answer: 'I cannot give you an answer until you ask a question!',
+
+      author: {
+        name: 'John Doe',
+        books: [
+          'Vue 2 - Advanced Guide',
+          'Vue 3 - Basic Guide',
+          'Vue 4 - The Mystery'
+        ]
+      }
+    }
+  },
+
+  computed: {
+    // a computed getter
+    publishedBooksMessage() {
+      // `this` points to the vm instance
+      return this.author.books.length > 0 ? 'Yes' : 'No'
     }
   },
 

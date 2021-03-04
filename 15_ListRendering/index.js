@@ -1,50 +1,73 @@
 const VueApp = {
     data() { 
       return {
-        names: [
-          { message: 'Foo1' },
-          { message: 'Bar1' }
-        ],
-
         parentMessage: 'Parent',
-        myItems: [
-          { key:2, message: 'Foo2' },
-          { key:1, message: 'Bar2' }
-        ],
 
-        myItems3: [
-          { key:1, message: 'Foo3' },
-          { key:2, message: 'Bar3' }
+        items: [
+          {id: 1, message: 'Foo' }, 
+          {id: 2, message: 'Bar' },
+          {id: 3, message: 'Json' },
+          {id: 5, message: 'Mary' },
+          {id: 4, message: 'Tom' },
         ],
 
         myObject: {
-          Jason: 'Father',
-          Jin: 'Mother',
-          Tom: 'Son'
-        },
-
-        myNumbers: [ 2, 1, 3, 5, 4 ],
-
-
-        nextTodoId: 4
-        
-      }
-    },
-
-    computed: {
-      evenNumbers: function () {
-        return this.myNumbers.filter(function (number) {
-          return number % 2 === 0
-        })
-      },
-
-      sortedNumber: function () {
-        return this.myNumbers.sort();
+          title: 'How to do lists in Vue',
+          author: 'Jane Doe',
+          publishedAt: '2016-04-10'
+        }
       }
     },
 
     methods: {
-      addNewTodo: function () {
+
+      orderedItems: function (o) {
+        // `this` points to the vm instance
+        return Object.keys(o).sort();
+      },
+    }
+  }
+
+  const app = Vue.createApp(VueApp)
+
+  app.mount('#array-rendering')
+
+  Vue.createApp({
+    data() {
+      return {
+        myObject: {
+          title: 'How to do lists in Vue',
+          author: 'Jane Doe',
+          publishedAt: '2016-04-10'
+        }
+      }
+    }
+  }).mount('#v-for-object')
+
+
+const templateApp = Vue.createApp({
+    data() {
+      return {
+        newTodoText: '',
+        todos: [
+          {
+            id: 1,
+            title: 'Do the dishes'
+          },
+          {
+            id: 2,
+            title: 'Take out the trash'
+          },
+          {
+            id: 3,
+            title: 'Mow the lawn'
+          }
+        ],
+        nextTodoId: 4
+      }
+    },
+    methods: {
+      addNewTodo() {
         this.todos.push({
           id: this.nextTodoId++,
           title: this.newTodoText
@@ -52,26 +75,17 @@ const VueApp = {
         this.newTodoText = ''
       }
     }
-  }
-
-  const app = Vue.createApp(VueApp)
-
-  app.component('todo-item', {
-    template: '\
-      <li>\
-        {{ title }}\
-        <button v-on:click="$emit(\'remove\')">Remove</button>\
-      </li>\
-    ',
-    props: ['title']
   })
-
-  app.myItems.push({key:3, message: 'Koo2'})
-  app.myItems.push({key:4, message: 'Zoo2'})
-
-  //example1.myItems.shift()
-
-  var t = app.myItems.pop()
-  app.myItems3.push(t)
-
-  app.mount('#example-1')
+  
+  templateApp.component('todo-item', {
+    template: `
+            <li>
+              {{ title }}
+              <button v-on:click="$emit('remove')">Remove</button>
+            </li>
+          `,
+    props: ['title'],
+    emits: ['remove']
+  })
+  
+  templateApp.mount('#todo-list-example')

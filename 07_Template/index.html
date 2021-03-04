@@ -8,16 +8,31 @@
     <title>07_Template</title>
     <script src="https://unpkg.com/vue@next"></script>
     <!--or <script src="vue.js"></script> vue.js를 같이 보낸다. -->
+
+    <style>
+        .demo {
+            font-family: sans-serif;
+            border: 1px solid #eee;
+            border-radius: 2px;
+            padding: 20px 30px;
+            margin-top: 1em;
+            margin-bottom: 40px;
+            user-select: none;
+            overflow-x: auto;
+        }
+    </style>
 </head>
 <body>
-    <div id="templat-app">
+    <div id="templat-app" class="demo">
         <p>
             <input v-model="message_a"> <br>
 
             <span v-once>Message: {{message_a}} </span> <br>
             Update only one: {{message_a}} <br>
             Using Mustaches: {{message_a}} <br>
-            Using v-html directive: <span v-html="message_a"></span>
+            <br>
+            Using Mustaches: {{rawHtml}} <br>
+            Using v-html directive: <span v-html="rawHtml"></span>
 
             <button v-bind:disabled="isButtonDisabled">Button</button>
         </p>

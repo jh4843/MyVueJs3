@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
+    <title>13 Class And Binding</title>
     <script src="https://unpkg.com/vue@next"></script>
     <!--or <script src="vue.js"></script> vue.js를 같이 보낸다. -->
 </head>
@@ -18,7 +18,8 @@
             <span>tt</span>
         </div>
 
-        <div v-bind:class="[activeClass, errorClass]"></div>
+        <div :class="[isActive ? activeClass : '', errorClass]">test1</div>
+        <div :class="[activeClass, errorClass]">test2</div>
 
         <my-component class="baz boo"></my-component>
 

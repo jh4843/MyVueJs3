@@ -1,0 +1,94 @@
+<!--index.html-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17 Form Input Binding</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <!--or <script src="vue.js"></script> vue.js를 같이 보낸다. -->
+</head>
+<body>
+    <div id="form-input-binding" class="demo">
+        <p>* text input</p>
+        <input v-model="message" placeholder="edit me" />
+        <input v-model.trim="msg1" />
+        <p>Message is: {{ message }}</p>
+        <p>Message is: {{ msg1 }}</p>
+
+        <br>
+        <p>* Multiline text</p>
+        <span>Multiline message is:</span>
+        <p style="white-space: pre-line;">{{ multilineMessage }}</p>
+        <br>
+        <textarea v-model="multilineMessage" placeholder="add multiple lines"></textarea>
+        <br>
+
+        <p>* Single Checkbox</p> 
+        <input type="checkbox" id="checkbox" v-model="checked">
+        <label for="checkbox">{{ checked }}</label>
+        <br>
+
+        <p>* Value Checkbox</p> 
+        <input type="checkbox" id="checkboxV" v-model="checkedValue" true-value="yes!!" false-value="no!!">
+        <label for="checkbox">{{ checkedValue }}</label>
+        <br>
+
+        <p>* Multiple Checkbox</p>
+        <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+        <label for="jack">Jack</label>
+        <input type="checkbox" id="john" value="John" v-model="checkedNames">
+        <label for="john">John</label>
+        <input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+        <label for="mike">Mike</label>
+        <br>
+        <span>Checked names: {{ checkedNames }}</span>
+        <br>
+
+        <p>* Radio</p> 
+        <input type="radio" id="one" value="One" v-model="picked">
+        <label for="one">One</label>
+        <br>
+        <input type="radio" id="two" value="Two" v-model="picked">
+        <label for="two">Two</label>
+        <br>
+        <span>Picked: {{ picked }}</span>
+        <br>
+
+        <p>* Select</p> 
+        <select v-model="selected">
+            <option disabled value="">Please select one</option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        <br>
+        <span>Selected: {{ selected }}</span>
+        <br>
+
+        <p>* Multiple Select</p> 
+        <select v-model="multipleSelected" multiple>
+            <option disabled value="">Please select multiple itmes</option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+        </select>
+        <br>
+        <span>Selected: {{ multipleSelected }}</span>
+        <br>
+
+        <p>* Dynamic options - Select</p> 
+        <select v-model="dynamicSelected">
+            <option v-for="option in options" :value="option.value">
+              {{ option.text }}
+            </option>
+        </select>
+        <br>
+        <span>Selected: {{ dynamicSelected }}</span>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
+

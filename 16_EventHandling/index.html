@@ -10,13 +10,21 @@
     <!--or <script src="vue.js"></script> vue.js를 같이 보낸다. -->
 </head>
 <body>
-    <div id="example-1">
+    <div id="event-handling">
         <button v-on:click="counter += 1">Add 1</button>
+        <!-- or -->
+        <button @click="counter += 1">Add 1</button>
+
         <p>The button above has been clicked {{ counter }} times.</p>
         <button type ="submit" value="Submit">submit</button>
         <button type ="reset" value="Reset">reset</button>
-        <button v-on:click="greet">Greet</button>
-        <button v-on:click="warn('Form cannot be submitted yet.', $event)">Submit</button>
+        <button @click="greet">Greet</button>
+        <button @click="warn('Form cannot be submitted yet.', $event)">Submit</button>
+        <button @click="one($event), two($event)">Multiple Event Handlers</button>
+        <br>
+        <input @keyup.enter="submit" />
+        <input @keyup.page-down="onPageDown" />
+        <input @keyup.page-down="onPageDown" />
 
         <p>
             <!-- the click event's propagation will be stopped -->
@@ -44,6 +52,8 @@
             <a v-on:click.once="doThis">click.once</a>
 
             <div v-on:scroll.passive="onScroll">scroll.passive</div>
+
+            
         </p>
     </div>
 

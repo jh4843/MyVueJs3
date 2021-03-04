@@ -2,7 +2,9 @@
 var model = {
     message_a: "Great",
     message_b: "Nice",
-    isButtonDisabled: false
+    isButtonDisabled: false,
+
+    rawHtml: '<span style="color: red">This should be red.</span>'
 };
 
 const VueApp = {
