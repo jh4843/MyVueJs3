@@ -5,23 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/vue@next"></script>
     <title>Document</title>
+    <style>
+      .tab-button {
+        padding: 6px 10px;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        background: #f0f0f0;
+        margin-bottom: -1px;
+        margin-right: -1px;
+      }
+      .tab-button:hover {
+        background: #4a66c0;
+      }
+      .tab-button.active {
+        background: #e5a0e0;
+      }
+      .demo-tab {
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
+    </style>
 </head>
 <body>
-    <div id="todo-list-app">
-        <ol>
-          <!--
-            Now we provide each todo-item with the todo object
-            it's representing, so that its content can be dynamic.
-            We also need to provide each component with a "key",
-            which will be explained later.
-          -->
-          <todo-item
-            v-for="item in groceryList"
-            v-bind:todo="item"
-            v-bind:key="item.id"
-          ></todo-item>
-        </ol>
-      </div>
-    <script src="index.js"></script>
+  <div id="component-example">
+    <br>
+    <!-- Reuse-->
+    <button-counter></button-counter>
+    <button-counter></button-counter>
+    <button-counter></button-counter>
+  
+    <ol>
+      <!--
+        Now we provide each todo-item with the todo object
+        it's representing, so that its content can be dynamic.
+        We also need to provide each component with a "key",
+        which will be explained later.
+      -->
+      <todo-item
+        v-for="item in groceryList"
+        v-bind:todo="item"
+        v-bind:key="item.id"
+      ></todo-item>
+    </ol>
+
+    <br>
+    <div :style="{ fontSize: postFontSize + 'em' }">
+      <blog-post
+      v-for="post in posts"
+      :key="post.id"
+      :title="post.title"
+      @enlarge-text="postFontSize += 0.1"
+      @alert-event="onAlarmText"
+      ></blog-post>
+    </div>
+
+    <br>
+    <custom-input v-model="searchText"></custom-input>
+
+    <br>
+    <alert-box>
+      Something bad happened.
+    </alert-box>
+
+    <br>
+    <button
+        v-for="tab in tabs"
+        v-bind:key="tab"
+        v-bind:class="['tab-button', { active: currentTab === tab }]"
+        v-on:click="currentTab = tab"
+      >
+      {{ tab }}
+    </button>
+  
+    <component v-bind:is="currentTabComponent" class="tab"></component>
+
+  </div>
+  <script src="index.js"></script>
 </body>
 </html>
